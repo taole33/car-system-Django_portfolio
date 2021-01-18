@@ -200,5 +200,3 @@ def car_search(request):
     #GETのときの処理
     return TemplateResponse(request, 'carmanage/car_search.html',
                             {'form': form})  
-
-# 同じサーバーで動かすためのcaradmin用の設定
