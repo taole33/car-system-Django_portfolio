@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/style.css' %}" >
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+        <meta charset="UTF-8">
+
+        <title>{% block title %}{% endblock %}</title>
+        <!-- fontawesome -->
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+</head>
+<body>
+<header>
+  
+  <nav class="navbar navbar-expand-lg bg-success fixed-top">
+  <a class="text-white navbar-brand ml-2" href="/carmanage/top/">公用車管理システム</a>
+    
+        <div id="main">
+          <ul class="menu">
+            <div class="text-center">
+              <li>車両一覧
+                  <p><span class='fa fa-car fa-4x'></span></p>
+                <ul class="sub">
+                    <li><a href="/carmanage/show_exist/">車両一覧</a></li>
+                    <li><a href="/carmanage/regist/">新規車両登録</a></li>
+
+
+                </ul>
+              </li>
+              <li>
+                  車両検索
+                <p><span class="fas fa-search fa-4x"></span></p>
+                <ul class="sub">
+                  <li><a href="/carmanage/car_search/">車両検索</a></li>
+
+                </ul>
+              </li>
+
+              <li>
+                廃車管理
+                <p><span class="fas fa-ban fa-4x"></span></p>
+                <ul class="sub">
+                  <li><a href="/carmanage/scrap_regist/">廃車登録</a></li>
+                  <li><a href="/carmanage/scrap_list/">廃車一覧</a></li>
+
+                </ul>
+              </li>
+
+                <li>
+                  事故管理
+                  <p><span class="fas fa-car-crash fa-4x"></span></p>
+                  <ul class="sub">
+                    <li><a href="/carmanage/clash_list/">事故一覧</a></li>
+                    <li><a href="/carmanage/clash_regist/">事故登録</a></li>
+
+                  </ul>
+                </li>
+                
+                <li>
+                  その他
+                  <p><span class="fas fa-cog fa-4x"></span></p>
+                  <ul class="sub">
+                    <li><a href="#">設定(未実装)</a></li>
+
+                  </ul>
+                </li>
+            </div>
+          </ul>
+        </div>
+        <p><a class="text-white navbar-brand ml-2" href="{% url 'logout' %}"><small>ログアウト</small></a></p>
+        </nav>
+</header>
+
+<div class="container m-1 ml-5">
+  <span class="col-12">
+        {% block main %}{% endblock %}
+  </span>
+</div>
+
+         <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+         {% load static %}
+         <script src={% static "/dropdown.js" %}></script>
+</body>
+
+<footer class="background-color text-white bg-success pl-5 p-1">
+  <p>MNEXT © 2021 - 2021</p>
+</footer>
+</html>
+
+<!--　今後実装
+<li><a href="#">走行距離登録(未)</a></li>
+                <li><a href="#">整備履歴一覧(未)</a></li>
+                  <li><a href="#">車検時期登録(未)</a></li>
+                  <li><a href="#">車検実施結果(未)</a></li>
+                  <li><a href="#">点検時期登録(未)</a></li>
+                  <li><a href="#">点検実施結果(未)</a></li>
+                                    <li><a href="#">費用登録(未)</a></li>
+                  <li><a href="#">費用一覧(未)</a></li>
+                  <li><a href="#">費用出力(未)</a></li>
+                  <li><a href="#">償却資産(未)</a></li>
+                  <li><a href="#">保険請求(未)</a></li>
+                    <li><a href="#">保険管理(未)</a></li>
+                                        <li><a href="#">その他(未)</a></li>
+                    <li><a href="#">その他(未)</a></li>
+                    <li><a href="#">その他(未)</a></li>
+
+
+
+
+
+
+
+
+
+-->

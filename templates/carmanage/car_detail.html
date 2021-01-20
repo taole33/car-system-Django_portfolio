@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}車両詳細{% endblock %}
+
+
+{% block main %}
+
+<h2>車両詳細</h2>
+
+<div class="p-5">
+<p>基礎情報</p>
+<table>
+  <tr>
+      <th>地域</th>
+      <th>分類番号</th>
+      <th>ひらがな</th>
+      <th>ナンバー</th>
+      <th>走行距離</th>
+      <th>購入価格</th>
+      <th>購入／リース</th>
+  </tr>
+  {% for car in car %}
+  <tr>
+      <td> {{ car.region }}</td>
+      <td> {{ car.bunruinum }}</td>
+      <td> {{ car.hiragana }}</td>
+      <td> {{ car.number }}</td>
+      <td> {{ car.distance }}</td>
+      <td>{{ car.price }}</td>
+      <td>{% if car.leaseorbuy == "1" %}
+      購入
+      {% elif car.leaseorbuy == "2" %}
+      リース
+      {% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+
+<div class="p-5">
+<p>点検情報</p>
+<table>
+  <tr>
+      <th>点検番号</th>
+      <th>点検日</th>
+      <th>点検種別</th>
+      <th>点検内容</th>
+  </tr>
+
+  <tr>
+      <td> </td>
+  </tr>
+</table>
+</div>
+
+<div class="p-5">
+<p>事故情報</p>
+<table>
+  <tr>
+      <th>事故日</th>
+      <th>運転手</th>
+      <th>詳細</th>
+  </tr>
+  {% for clash in clash %}
+  <tr>
+      <td> {{ clash.clashday }}</td>
+      <td> {{ clash.driver }}</td>
+      <td> {{ clash.detail }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+
+<div class="p-5">
+<p>廃車情報</p>
+<table>
+  <tr>
+      <th>廃車済</th>
+      <th>廃車日</th>
+  </tr>
+  {% for scrap in scrap %}
+  <tr>
+      <td> {{ scrap.scrapday }}</td>
+      <td> {% if scrap.scrap  == True %}
+        はい
+        {% else %}
+        いいえ
+        {% endif %}
+      </td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+
+
+
+{% endblock %}

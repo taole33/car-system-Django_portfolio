@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}車両検索{% endblock %}
+
+
+{% block main %}
+
+<h2>車両検索</h2>
+
+<div class="col-lg-6 offset-lg-3">
+    <form method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group form-inline">
+                <label class="col-md-offset-2 col-md-3 control-label">{{ field.label }}:</label>
+                <div class="col-md-8">
+                    {{ field }}
+                </div>
+            </div>
+        {% endfor %}
+        <input class="btn btn-success offset-md-8 col-md-3" type="submit" id="button" name="button" value="検索">
+    </form>
+</div>
+
+
+
+{% endblock %}

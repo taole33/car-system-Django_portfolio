@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+車両登録画面
+{% endblock %}
+
+
+{% block main %}
+
+<h2>新規車両登録</h2>
+
+
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <BR>
+    <button type="submit" class="btn btn-success">新規登録</button>
+</form>
+
+<!--crispy の使い方は
+    https://simpleisbetterthancomplex.com/tutorial/2018/08/13/how-to-use-bootstrap-4-forms-with-django.html
+　　各フィールドに個別でdiv class指定できたりする　-->>
+
+{% endblock %}

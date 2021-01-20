@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+車両登録画面
+{% endblock %}
+
+
+{% block main %}
+
+
+    以下の内容で登録しました。<BR>
+    <BR>
+    <p> {{ form.region }}</p>
+    <p> {{ form.bunruinum }}</p>
+    <p> {{ form.hiragana }}</p>
+    <p> {{ form.number }}</p>
+    <p>{{ form.price }}</p>
+    <p>{% if form.leaseorbuy == "1" %}
+    購入
+    {% elif form.leaseorbuy == "2" %}
+    リース
+    {% endif %}</p>
+    <p>{{ form.distance }}</p>
+
+
+
+{% endblock %}

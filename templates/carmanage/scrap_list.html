@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+廃車画面
+{% endblock %}
+
+
+{% block main %}
+
+<h2>廃車済車両情報一覧</h2>
+
+<table>
+    <tr>
+        <th>廃車番号</th>
+        <th>廃車日</th>
+        <th>ナンバー</th>
+
+    </tr>
+    {% for scrapdb in scrapdb %}
+    
+    <tr>
+        <td> {{ scrapdb.id}}</td>
+        <td> {{ scrapdb.scrapday }}</td>
+        <td> {{ scrapdb.car.region }}{{ scrapdb.car.bunruinum}}{{ scrapdb.car.hiragana }}{{ scrapdb.car.number}}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

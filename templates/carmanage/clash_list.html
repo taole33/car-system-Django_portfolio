@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+事故車画面
+{% endblock %}
+
+
+{% block main %}
+<h2>事故車両情報一覧</h2>
+
+<table>
+    <tr>
+        <th>事故番号</th>
+        <th>事故日</th>
+        <th>ナンバー</th>
+        <th>運転手</th>
+
+    </tr>
+    {% for clashdatabase in clashdatabase %}
+        {% for car in clashdatabase.car.all %}
+    <tr>
+        <td> {{ clashdatabase.id}}</td>
+        <td> {{ clashdatabase.clashday }}</td>
+        <td> {{car.region}}{{car.bunruinum}}{{ car.hiragana }}{{car.number}}</td>
+        <td> {{ clashdatabase.driver }}</td>
+    </tr>
+        {% endfor %}
+    {% endfor %}
+</table>
+
+{% endblock %}

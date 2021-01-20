@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}車両編集{% endblock %}
+
+
+{% block main %}
+
+
+<p>編集対象車　：　{{car}}</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <BR>
+    <button type="submit" class="btn btn-success">変更</button>
+</form>
+
+
+  
+{% endblock %}

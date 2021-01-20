@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+車管理画面
+{% endblock %}
+
+
+{% block main %}
+
+<h2>車両情報一覧</h2>
+{% if show_mode == "exist" %}
+廃車済の車両は表示されません。
+
+<div class="text-right">
+<a href="/carmanage/show_all/">廃車済の車両も含めて表示する</a>
+</div>
+{% elif show_mode == "all" %}
+廃車済の車両も含んでいます。
+
+<div class="text-right">
+<a href="/carmanage/show_exist/">廃車済の車両は表示しない</a>
+</div>
+
+{% elif show_mode == "search" %}
+検索結果を表示しています
+
+{% endif %}
+
+
+{% csrf_token %}
+<table>
+    <tr>
+        <th>地域</th>
+        <th>分類番号</th>
+        <th>ひらがな</th>
+        <th>ナンバー</th>
+        <th>走行距離</th>
+        <th>購入価格</th>
+        <th>購入／リース</th>
+        <th></th>
+    </tr>
+    {% for cardatabase in cardatabase %}
+    <tr>
+        <td> {{ cardatabase.region }}</td>
+        <td> {{ cardatabase.bunruinum }}</td>
+        <td> {{ cardatabase.hiragana }}</td>
+        <td> {{ cardatabase.number }}</td>
+        <td> {{ cardatabase.distance }}</td>
+        <td>{{ cardatabase.price }}</td>
+        <td>{% if cardatabase.leaseorbuy == "1" %}
+        購入
+        {% elif cardatabase.leaseorbuy == "2" %}
+        リース
+        {% endif %}</td>
+        <td> <button onclick="location.href='carmanage/{{cardatabase.id}}/detail/'" class="btn btn-secondary">詳細</button>
+            <button onclick="location.href='carmanage/{{cardatabase.id}}/edit/'" class="btn btn-secondary">編集する</button> 
+         </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</form>
+
+{% endblock %}
