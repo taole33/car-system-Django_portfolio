@@ -20,9 +20,9 @@ from django.utils.decorators import method_decorator
 ########車両表示から車両登録まで####################
 @login_required
 def show_all(request):
-        cardatabase = Car.objects.all
-        show_mode="all"
-        return TemplateResponse(request,'carmanage/manage.html',{'cardatabase':cardatabase,'show_mode':show_mode})
+    cardatabase = Car.objects.all
+    show_mode="all"
+    return TemplateResponse(request,'carmanage/manage.html',{'cardatabase':cardatabase,'show_mode':show_mode})
 
 @login_required
 def show_exist(request):
